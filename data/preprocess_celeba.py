@@ -16,24 +16,24 @@ seg_valset_path = os.path.join(dataset_path, 'label_val')
 colored_label = False
 
 mapping = {
-    # 'skin':   1,
-    # 'eye_g':  10,
-    # 'l_eye':  2,
-    # 'r_eye':  2,
-    # 'l_brow': 3,
-    # 'r_brow': 3,
+    'skin':   1,
+    'eye_g':  10,
+    'l_eye':  2,
+    'r_eye':  2,
+    'l_brow': 3,
+    'r_brow': 3,
     'mouth':  4,
-    # 'l_lip':  4,
-    # 'u_lip':  4,
-    # 'nose':   5,
-    # 'hair':   7,
-    # 'l_ear':  6,
-    # 'r_ear':  6,
-    # 'neck':   8,
-    # 'neck_l': 8,
-    # 'cloth':  9,
-    # 'hat':    11,
-    # 'ear_r':  12,
+    'l_lip':  4,
+    'u_lip':  4,
+    'nose':   5,
+    'hair':   7,
+    'l_ear':  6,
+    'r_ear':  6,
+    'neck':   8,
+    'neck_l': 8,
+    'cloth':  9,
+    'hat':    11,
+    'ear_r':  12,
 }
 
 color_map = {
@@ -77,7 +77,7 @@ def process_img(i):
     for k,v in mapping.items():
         if not os.path.exists(prefix+k+'.png'):
             continue
-        mask_ = imread(prefix+k+'.png', as_gray=True) == 255
+        mask_ = imread(prefix+k+'.png', mode='L') == 255
         mask[mask_] = color_map[v] if colored_label else v
         success = True
     if not success:
