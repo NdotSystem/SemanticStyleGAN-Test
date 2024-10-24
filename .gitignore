@@ -130,3 +130,5 @@ dmypy.json
 .pt
 .DS_Store
 pretrained/
+
+data/CelebAMask-HQ
